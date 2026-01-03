@@ -16,9 +16,11 @@ body {
 }
 .container {
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
   text-align: center;
 }
+
+/* ANA BUTONLAR (PLAYERS & CREWS) */
 .buttons {
   display: flex;
   justify-content: center;
@@ -42,13 +44,18 @@ body {
   transform: scale(1.05);
 }
 .back-btn { width: 120px; margin-bottom: 20px; }
-.players-row {
+
+/* META BUTONLARI */
+.meta-buttons {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 10px;
+  gap: 10px;
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
+.meta-buttons .btn { width: auto; padding: 10px 20px; font-size: 16px; }
+
+/* DH META LİSTESİ */
 .profile-grid {
   display: flex;
   flex-direction: column;
@@ -77,6 +84,8 @@ body {
 .rank.silver { color: #C0C0C0; }
 .rank.bronze { color: #CD7F32; }
 .rank.normal { color: white; }
+
+/* Başlangıçta gizli */
 #players-menu, #dh-meta { display: none; }
 </style>
 </head>
@@ -90,12 +99,10 @@ body {
 
 <div id="players-menu">
   <button class="btn back-btn" onclick="goBackToMain()">Back</button>
-  <div class="players-row">
+  <div class="meta-buttons">
     <button class="btn">OLD TTK META</button>
     <button class="btn">DIAMOND META</button>
     <button class="btn" onclick="openDHMeta()">DH META</button>
-  </div>
-  <div class="players-row">
     <button class="btn">RUMBLE META</button>
     <button class="btn">CURRENT META</button>
   </div>
@@ -104,6 +111,7 @@ body {
 <div id="dh-meta">
   <button class="btn back-btn" onclick="goBackToPlayers()">Back</button>
   <div class="profile-grid">
+    <!-- #1 Felix -->
     <div class="profile-card"><span class="rank gold">#1</span><img src="https://images-ext-1.discordapp.net/external/8xJf-XWfH54HgU--L3VevoNdWbh4rlkMzUTPnlqNkUI/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/655861631443664925/25fa6c270f42d0db432c7afb18d8e8ec.webp?format=webp" alt="Felix"><span class="name">Felix</span></div>
     <div class="profile-card"><span class="rank silver">#2</span><img src="https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024"><span class="name">Seijuro</span></div>
     <div class="profile-card"><span class="rank bronze">#3</span><img src="https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024"><span class="name">Cako</span></div>

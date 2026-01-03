@@ -4,10 +4,7 @@
 <meta charset="UTF-8">
 <title>BLOXTR</title>
 <style>
-* {
-  box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
 body {
   margin: 0;
   background: black;
@@ -18,18 +15,10 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-.container {
-  text-align: center;
-}
+.container { text-align: center; }
 
 /* ANA MENÜ */
-.buttons {
-  display: flex;
-  gap: 35px;
-}
-
-/* GERÇEKÇİ BUTON */
+.buttons { display: flex; gap: 35px; }
 .btn {
   width: 230px;
   height: 85px;
@@ -39,12 +28,8 @@ body {
   border-radius: 16px;
   font-size: 22px;
   cursor: pointer;
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
-
 .btn:hover {
   background: white;
   color: black;
@@ -52,17 +37,7 @@ body {
 }
 
 /* PLAYERS */
-.players {
-  display: none;
-}
-
-/* SATIRLAR */
-.row {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 30px;
-}
+.players { display: none; }
 
 /* BACK */
 .back-btn {
@@ -70,6 +45,28 @@ body {
   height: 50px;
   margin: 0 auto 35px auto;
   font-size: 17px;
+}
+
+/* PROFİL KARTLARI */
+.profile-card {
+  display: flex;
+  align-items: center;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 10px 20px;
+  gap: 20px;
+  width: 400px;
+  margin: 10px auto;
+}
+.profile-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.profile-card span {
+  font-size: 20px;
+  color: white;
 }
 </style>
 </head>
@@ -87,18 +84,51 @@ body {
   <div id="players" class="players">
     <button class="btn back-btn" onclick="goBack()">Back</button>
 
-    <!-- ÜST SIRA (3) -->
-    <div class="row">
-      <button class="btn">CDK META</button>
-      <button class="btn">TTK META</button>
-      <button class="btn">DIAMOND META</button>
+    <!-- PROFİL KARTLARI -->
+    <div id="player-list">
+      <div class="profile-card">
+        <img src="https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024" alt="Cako">
+        <span>Cako</span>
+      </div>
+      <div class="profile-card">
+        <img src="https://cdn.discordapp.com/avatars/655861631443664925/270d86c2795c684f8263ec55e60eb783.webp?size=1024" alt="Felix">
+        <span>Felix</span>
+      </div>
+      <div class="profile-card">
+        <img src="https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024" alt="Seijuro">
+        <span>Seijuro</span>
+      </div>
+      <div class="profile-card">
+        <img src="https://cdn.discordapp.com/avatars/1379437949632122900/6ca4cf634f57faa0682567955ff48547.webp?size=1024" alt="Thung">
+        <span>Thung</span>
+      </div>
+      <!-- N/A KİŞİLER -->
+      <div class="profile-card">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
+        <span>N/A</span>
+      </div>
+      <div class="profile-card">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
+        <span>N/A</span>
+      </div>
+      <div class="profile-card">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
+        <span>N/A</span>
+      </div>
+      <div class="profile-card">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
+        <span>N/A</span>
+      </div>
+      <div class="profile-card">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
+        <span>N/A</span>
+      </div>
+      <div class="profile-card">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
+        <span>N/A</span>
+      </div>
     </div>
 
-    <!-- ALT SIRA (2) -->
-    <div class="row">
-      <button class="btn">DH META</button>
-      <button class="btn">CURRENT META</button>
-    </div>
   </div>
 
 </div>

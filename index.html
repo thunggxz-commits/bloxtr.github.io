@@ -25,10 +25,16 @@
             gap: 40px;
         }
 
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
         .btn {
             width: 220px;
             height: 90px;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: bold;
             color: white;
             background-color: #111;
@@ -43,15 +49,35 @@
             border-color: #888;
             transform: scale(1.05);
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <!-- ANA MENÜ -->
+    <div class="container" id="mainMenu">
         <button class="btn">Players</button>
-        <button class="btn">Meta's</button>
+        <button class="btn" onclick="openMeta()">Meta's</button>
         <button class="btn">Crews</button>
     </div>
+
+    <!-- META MENÜ -->
+    <div class="grid hidden" id="metaMenu">
+        <button class="btn">CDK</button>
+        <button class="btn">TTK</button>
+        <button class="btn">DIAMOND</button>
+        <button class="btn">DH</button>
+    </div>
+
+    <script>
+        function openMeta() {
+            document.getElementById("mainMenu").classList.add("hidden");
+            document.getElementById("metaMenu").classList.remove("hidden");
+        }
+    </script>
 
 </body>
 </html>

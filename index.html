@@ -46,11 +46,12 @@ body {
 .back-btn { width: 120px; margin-bottom: 20px; }
 
 /* PLAYERS MENÜ BUTONLARI */
-.row {
+.players-row {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 /* DH META LİSTESİ */
@@ -85,15 +86,6 @@ body {
 
 /* Başlangıçta gizli */
 #players-menu, #dh-meta { display: none; }
-
-/* PLAYERS META BUTONLARI için düzen */
-.players-row {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
-}
 </style>
 </head>
 <body>
@@ -155,8 +147,13 @@ body {
         <img src="https://cdn.discordapp.com/avatars/1126125493083721769/84880d047e07c1c8de01b8be5c3e68a0.webp?size=1024" alt="Scarlet">
         <span class="name">Scarlet</span>
       </div>
+      <!-- Gustav (#6) -->
+      <div class="profile-card">
+        <span class="rank normal">#6</span>
+        <img src="https://cdn.discordapp.com/avatars/1126860874980798577/bdb1fa27b7b4bcc5e96a0072dda03fe1.webp?size=1024" alt="Gustav">
+        <span class="name">Gustav</span>
+      </div>
       <!-- N/A -->
-      <div class="profile-card"><span class="rank normal">#6</span><img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"><span class="name">N/A</span></div>
       <div class="profile-card"><span class="rank normal">#7</span><img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"><span class="name">N/A</span></div>
       <div class="profile-card"><span class="rank normal">#8</span><img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"><span class="name">N/A</span></div>
       <div class="profile-card"><span class="rank normal">#9</span><img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"><span class="name">N/A</span></div>

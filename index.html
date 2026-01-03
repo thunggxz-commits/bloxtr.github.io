@@ -10,15 +10,16 @@ body {
   background: black;
   color: white;
   font-family: Arial, sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 50px;
 }
 .container { text-align: center; }
 
 /* ANA MENÜ */
-.buttons { display: flex; gap: 35px; }
+.buttons { display: flex; gap: 35px; justify-content: center; flex-wrap: wrap; }
 .btn {
   width: 230px;
   height: 85px;
@@ -36,15 +37,25 @@ body {
   transform: scale(1.08);
 }
 
-/* PLAYERS MENÜ VE DH META */
+/* PLAYERS MENÜ */
 #players-menu, #dh-meta { display: none; }
 
 /* BACK */
 .back-btn {
   width: 140px;
   height: 50px;
-  margin: 0 auto 35px auto;
+  margin: 0 auto 25px auto;
   font-size: 17px;
+  display: block;
+}
+
+/* ROW FLEX */
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 /* PROFİL KARTLARI */
@@ -54,9 +65,9 @@ body {
   background: #1a1a1a;
   border-radius: 12px;
   padding: 10px 20px;
-  gap: 20px;
+  gap: 15px;
   width: 400px;
-  margin: 10px auto;
+  margin: 8px auto;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .profile-card img {
@@ -73,14 +84,13 @@ body {
   transform: scale(1.03);
   box-shadow: 0 0 15px #fff;
 }
-
-/* ROW FLEX */
-.row {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 30px;
+.rank {
+  font-weight: bold;
+  margin-right: 10px;
 }
+.rank.gold { color: #FFD700; }
+.rank.silver { color: #C0C0C0; }
+.rank.bronze { color: #CD7F32; }
 </style>
 </head>
 <body>
@@ -112,43 +122,53 @@ body {
     <button class="btn back-btn" onclick="goBackToPlayers()">Back</button>
 
     <div class="profile-card">
+      <span class="rank gold">#1</span>
       <img src="https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024" alt="Cako">
       <span>Cako</span>
     </div>
     <div class="profile-card">
+      <span class="rank silver">#2</span>
       <img src="https://cdn.discordapp.com/avatars/655861631443664925/270d86c2795c684f8263ec55e60eb783.webp?size=1024" alt="Felix">
       <span>Felix</span>
     </div>
     <div class="profile-card">
+      <span class="rank bronze">#3</span>
       <img src="https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024" alt="Seijuro">
       <span>Seijuro</span>
     </div>
     <div class="profile-card">
+      <span class="rank">#4</span>
       <img src="https://cdn.discordapp.com/avatars/1379437949632122900/6ca4cf634f57faa0682567955ff48547.webp?size=1024" alt="Thung">
       <span>Thung</span>
     </div>
     <!-- N/A KİŞİLER -->
     <div class="profile-card">
+      <span class="rank">#5</span>
       <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
       <span>N/A</span>
     </div>
     <div class="profile-card">
+      <span class="rank">#6</span>
       <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
       <span>N/A</span>
     </div>
     <div class="profile-card">
+      <span class="rank">#7</span>
       <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
       <span>N/A</span>
     </div>
     <div class="profile-card">
+      <span class="rank">#8</span>
       <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
       <span>N/A</span>
     </div>
     <div class="profile-card">
+      <span class="rank">#9</span>
       <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
       <span>N/A</span>
     </div>
     <div class="profile-card">
+      <span class="rank">#10</span>
       <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
       <span>N/A</span>
     </div>
@@ -182,3 +202,4 @@ function goBackToPlayers() {
 
 </body>
 </html>
+

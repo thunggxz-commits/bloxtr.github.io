@@ -36,8 +36,8 @@ body {
   transform: scale(1.08);
 }
 
-/* PLAYERS */
-.players { display: none; }
+/* PLAYERS (DH META) */
+#dh-meta { display: none; }
 
 /* BACK */
 .back-btn {
@@ -57,6 +57,7 @@ body {
   gap: 20px;
   width: 400px;
   margin: 10px auto;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 .profile-card img {
   width: 60px;
@@ -68,6 +69,10 @@ body {
   font-size: 20px;
   color: white;
 }
+.profile-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px #fff;
+}
 </style>
 </head>
 <body>
@@ -76,57 +81,54 @@ body {
 
   <!-- ANA MENÜ -->
   <div id="main" class="buttons">
-    <button class="btn" onclick="openPlayers()">PLAYERS</button>
+    <button class="btn" onclick="openDHMeta()">DH META</button>
     <button class="btn">CREWS</button>
   </div>
 
-  <!-- PLAYERS -->
-  <div id="players" class="players">
+  <!-- DH META PLAYERS -->
+  <div id="dh-meta">
     <button class="btn back-btn" onclick="goBack()">Back</button>
 
-    <!-- PROFİL KARTLARI -->
-    <div id="player-list">
-      <div class="profile-card">
-        <img src="https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024" alt="Cako">
-        <span>Cako</span>
-      </div>
-      <div class="profile-card">
-        <img src="https://cdn.discordapp.com/avatars/655861631443664925/270d86c2795c684f8263ec55e60eb783.webp?size=1024" alt="Felix">
-        <span>Felix</span>
-      </div>
-      <div class="profile-card">
-        <img src="https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024" alt="Seijuro">
-        <span>Seijuro</span>
-      </div>
-      <div class="profile-card">
-        <img src="https://cdn.discordapp.com/avatars/1379437949632122900/6ca4cf634f57faa0682567955ff48547.webp?size=1024" alt="Thung">
-        <span>Thung</span>
-      </div>
-      <!-- N/A KİŞİLER -->
-      <div class="profile-card">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
-        <span>N/A</span>
-      </div>
-      <div class="profile-card">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
-        <span>N/A</span>
-      </div>
-      <div class="profile-card">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
-        <span>N/A</span>
-      </div>
-      <div class="profile-card">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
-        <span>N/A</span>
-      </div>
-      <div class="profile-card">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
-        <span>N/A</span>
-      </div>
-      <div class="profile-card">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
-        <span>N/A</span>
-      </div>
+    <div class="profile-card">
+      <img src="https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024" alt="Cako">
+      <span>Cako</span>
+    </div>
+    <div class="profile-card">
+      <img src="https://cdn.discordapp.com/avatars/655861631443664925/270d86c2795c684f8263ec55e60eb783.webp?size=1024" alt="Felix">
+      <span>Felix</span>
+    </div>
+    <div class="profile-card">
+      <img src="https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024" alt="Seijuro">
+      <span>Seijuro</span>
+    </div>
+    <div class="profile-card">
+      <img src="https://cdn.discordapp.com/avatars/1379437949632122900/6ca4cf634f57faa0682567955ff48547.webp?size=1024" alt="Thung">
+      <span>Thung</span>
+    </div>
+    <!-- N/A KİŞİLER -->
+    <div class="profile-card">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
+      <span>N/A</span>
+    </div>
+    <div class="profile-card">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
+      <span>N/A</span>
+    </div>
+    <div class="profile-card">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
+      <span>N/A</span>
+    </div>
+    <div class="profile-card">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
+      <span>N/A</span>
+    </div>
+    <div class="profile-card">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
+      <span>N/A</span>
+    </div>
+    <div class="profile-card">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt="N/A">
+      <span>N/A</span>
     </div>
 
   </div>
@@ -134,16 +136,17 @@ body {
 </div>
 
 <script>
-function openPlayers() {
+function openDHMeta() {
   document.getElementById("main").style.display = "none";
-  document.getElementById("players").style.display = "block";
+  document.getElementById("dh-meta").style.display = "block";
 }
 
 function goBack() {
-  document.getElementById("players").style.display = "none";
+  document.getElementById("dh-meta").style.display = "none";
   document.getElementById("main").style.display = "flex";
 }
 </script>
 
 </body>
 </html>
+

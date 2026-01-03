@@ -36,8 +36,8 @@ body {
   transform: scale(1.08);
 }
 
-/* PLAYERS (DH META) */
-#dh-meta { display: none; }
+/* PLAYERS MENÜ */
+#players-menu, #dh-meta { display: none; }
 
 /* BACK */
 .back-btn {
@@ -81,13 +81,27 @@ body {
 
   <!-- ANA MENÜ -->
   <div id="main" class="buttons">
-    <button class="btn" onclick="openDHMeta()">DH META</button>
+    <button class="btn" onclick="openPlayersMenu()">PLAYERS</button>
     <button class="btn">CREWS</button>
+  </div>
+
+  <!-- PLAYERS MENÜ -->
+  <div id="players-menu">
+    <button class="btn back-btn" onclick="goBackToMain()">Back</button>
+    <div class="row">
+      <button class="btn">CDK META</button>
+      <button class="btn">TTK META</button>
+      <button class="btn">DIAMOND META</button>
+    </div>
+    <div class="row">
+      <button class="btn" onclick="openDHMeta()">DH META</button>
+      <button class="btn">CURRENT META</button>
+    </div>
   </div>
 
   <!-- DH META PLAYERS -->
   <div id="dh-meta">
-    <button class="btn back-btn" onclick="goBack()">Back</button>
+    <button class="btn back-btn" onclick="goBackToPlayers()">Back</button>
 
     <div class="profile-card">
       <img src="https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024" alt="Cako">
@@ -136,17 +150,28 @@ body {
 </div>
 
 <script>
-function openDHMeta() {
+function openPlayersMenu() {
   document.getElementById("main").style.display = "none";
+  document.getElementById("players-menu").style.display = "block";
+}
+
+function openDHMeta() {
+  document.getElementById("players-menu").style.display = "none";
   document.getElementById("dh-meta").style.display = "block";
 }
 
-function goBack() {
-  document.getElementById("dh-meta").style.display = "none";
+function goBackToMain() {
+  document.getElementById("players-menu").style.display = "none";
   document.getElementById("main").style.display = "flex";
+}
+
+function goBackToPlayers() {
+  document.getElementById("dh-meta").style.display = "none";
+  document.getElementById("players-menu").style.display = "block";
 }
 </script>
 
 </body>
 </html>
+
 

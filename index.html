@@ -20,10 +20,11 @@ body {
 .btn:hover { background: white; color: black; transform: scale(1.05); }
 .back-btn { width: 120px; margin-bottom: 20px; }
 .profile-grid { display: flex; flex-direction: column; gap: 10px; align-items: center; }
-.profile-card { display: flex; align-items: center; background: #1a1a1a; border-radius: 10px; padding: 8px 12px; width: 100%; max-width: 350px; gap: 10px; }
+.profile-card { display: flex; flex-direction: column; align-items: center; background: #1a1a1a; border-radius: 10px; padding: 8px 12px; width: 100%; max-width: 350px; gap: 5px; }
 .profile-card img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
-.profile-card span.name { font-size: 16px; flex: 1; text-align: left; }
-.profile-card span.rank { width: 30px; text-align: right; font-weight: bold; }
+.profile-card span.name { font-size: 16px; text-align: center; }
+.profile-card span.rank { font-weight: bold; font-size: 14px; text-align: center; }
+.profile-card span.crew { font-size: 12px; color: #aaa; text-align: center; }
 .rank.gold { color: #FFD700; }
 .rank.silver { color: #C0C0C0; }
 .rank.bronze { color: #CD7F32; }
@@ -59,17 +60,32 @@ body {
 </div>
 
 <script>
+// DH META
 const dhMetaPlayers = [
-  {rank:'#1', name:'Felix', profile:'https://cdn.discordapp.com/avatars/655861631443664925/25fa6c270f42d0db432c7afb18d8e8ec.webp?size=1024', color:'gold'},
-  {rank:'#2', name:'Seijuro', profile:'https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024', color:'silver'},
-  {rank:'#3', name:'Cako', profile:'https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024', color:'bronze'},
-  {rank:'#4', name:'Thung', profile:'https://cdn.discordapp.com/avatars/1379437949632122900/6ca4cf634f57faa0682567955ff48547.webp?size=1024', color:'normal'},
-  {rank:'#5', name:'Scarlet', profile:'https://cdn.discordapp.com/avatars/1126125493083721769/84880d047e07c1c8de01b8be5c3e68a0.webp?size=1024', color:'normal'},
-  {rank:'#6', name:'Zan', profile:'https://cdn.discordapp.com/avatars/1410278929851486248/bdbacd2b2bb0a00a83dd76208ad84bfc.webp?size=1024', color:'normal'},
-  {rank:'#7', name:'Gustav', profile:'https://cdn.discordapp.com/avatars/1126860874980798577/bdb1fa27b7b4bcc5e96a0072dda03fe1.webp?size=1024', color:'normal'},
-  {rank:'#8', name:'Mansy', profile:'https://cdn.discordapp.com/avatars/1231986258826231911/f1bbde8d1473d57e25b59993e5866e8a.webp?size=1024', color:'normal'},
-  {rank:'#9', name:'Dou', profile:'https://cdn.discordapp.com/avatars/1045211249002168411/fb7cc4dbc3affb2c563b1e82d97f3978.webp?size=1024', color:'normal'},
-  {rank:'#10', name:'Exe', profile:'https://cdn.discordapp.com/avatars/1405197917786210395/7c5c6e4e664d314c9919207291aa81a3.webp?size=1024', color:'normal'}
+  {rank:'#1', name:'Felix', profile:'https://cdn.discordapp.com/avatars/655861631443664925/25fa6c270f42d0db432c7afb18d8e8ec.webp?size=1024', color:'gold', crew:'Turkish Empire'},
+  {rank:'#2', name:'Seijuro', profile:'https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024', color:'silver', crew:'Celestial Symphony'},
+  {rank:'#3', name:'Cako', profile:'https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024', color:'bronze', crew:'Turkish Empire'},
+  {rank:'#4', name:'Thung', profile:'https://cdn.discordapp.com/avatars/1379437949632122900/6ca4cf634f57faa0682567955ff48547.webp?size=1024', color:'normal', crew:'Turkish Empire'},
+  {rank:'#5', name:'Scarlet', profile:'https://cdn.discordapp.com/avatars/1126125493083721769/84880d047e07c1c8de01b8be5c3e68a0.webp?size=1024', color:'normal', crew:'Turkish Empire'},
+  {rank:'#6', name:'Zan', profile:'https://cdn.discordapp.com/avatars/1410278929851486248/bdbacd2b2bb0a00a83dd76208ad84bfc.webp?size=1024', color:'normal', crew:'Turkish Empire'},
+  {rank:'#7', name:'Gustav', profile:'https://cdn.discordapp.com/avatars/1126860874980798577/bdb1fa27b7b4bcc5e96a0072dda03fe1.webp?size=1024', color:'normal', crew:'N/A'},
+  {rank:'#8', name:'Mansy', profile:'https://cdn.discordapp.com/avatars/1231986258826231911/f1bbde8d1473d57e25b59993e5866e8a.webp?size=1024', color:'normal', crew:'Turkish Empire'},
+  {rank:'#9', name:'Dou', profile:'https://cdn.discordapp.com/avatars/1045211249002168411/fb7cc4dbc3affb2c563b1e82d97f3978.webp?size=1024', color:'normal', crew:'Turkish Empire'},
+  {rank:'#10', name:'Exe', profile:'https://cdn.discordapp.com/avatars/1405197917786210395/7c5c6e4e664d314c9919207291aa81a3.webp?size=1024', color:'normal', crew:'Turkish Empire'}
+];
+
+// Diğer META’lar (örnek N/A)
+const defaultPlayers = [
+  {rank:'#1', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', color:'normal', crew:'N/A'},
+  {rank:'#2', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', color:'normal', crew:'N/A'},
+  {rank:'#3', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', color:'normal', crew:'N/A'},
+  {rank:'#4', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', color:'normal', crew:'N/A'},
+  {rank:'#5', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', color:'normal', crew:'N/A'},
+  {rank:'#6', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', color:'normal', crew:'N/A'},
+  {rank:'#7', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', color:'normal', crew:'N/A'},
+  {rank:'#8', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', color:'normal', crew:'N/A'},
+  {rank:'#9', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', color:'normal', crew:'N/A'},
+  {rank:'#10', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', color:'normal', crew:'N/A'}
 ];
 
 function openPlayersMenu() {
@@ -106,25 +122,18 @@ function openMeta(metaName) {
   const grid = document.createElement('div');
   grid.className = 'profile-grid';
 
-  if(metaName === 'DH META'){
-    dhMetaPlayers.forEach(p => {
-      const card = document.createElement('div');
-      card.className = 'profile-card';
-      card.innerHTML = `<span class="rank ${p.color}">${p.rank}</span>
-                        <img src="${p.profile}">
-                        <span class="name">${p.name}</span>`;
-      grid.appendChild(card);
-    });
-  } else {
-    for(let i=1;i<=10;i++){
-      const card = document.createElement('div');
-      card.className = 'profile-card';
-      card.innerHTML = `<span class="rank normal">#${i}</span>
-                        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg">
-                        <span class="name">N/A</span>`;
-      grid.appendChild(card);
-    }
-  }
+  let playersList = defaultPlayers;
+  if(metaName === 'DH META') playersList = dhMetaPlayers;
+
+  playersList.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'profile-card';
+    card.innerHTML = `<span class="rank ${p.color}">${p.rank}</span>
+                      <img src="${p.profile}">
+                      <span class="name">${p.name}</span>
+                      <span class="crew">CREW: ${p.crew}</span>`;
+    grid.appendChild(card);
+  });
 
   metaContainer.appendChild(grid);
 }

@@ -26,18 +26,18 @@ body {
 /* ANA MENÜ */
 .buttons {
   display: flex;
-  gap: 30px;
+  gap: 35px;
 }
 
 /* GERÇEKÇİ BUTON */
 .btn {
-  width: 190px;
-  height: 70px;
+  width: 230px;
+  height: 85px;
   background: #2b2b2b;
   color: white;
   border: none;
-  border-radius: 14px;
-  font-size: 20px;
+  border-radius: 16px;
+  font-size: 22px;
   cursor: pointer;
   transition: 
     transform 0.2s ease,
@@ -51,24 +51,24 @@ body {
   transform: scale(1.08);
 }
 
-/* METAS */
-.metas {
+/* PLAYERS (ESKİ METAS) */
+.players {
   display: none;
 }
 
-.metas-grid {
+.players-grid {
   display: grid;
-  grid-template-columns: repeat(2, 190px);
-  gap: 25px;
+  grid-template-columns: repeat(2, 230px);
+  gap: 30px;
   justify-content: center;
 }
 
 /* BACK BUTONU */
 .back-btn {
-  width: 120px;
-  height: 45px;
-  margin: 0 auto 30px auto;
-  font-size: 16px;
+  width: 140px;
+  height: 50px;
+  margin: 0 auto 35px auto;
+  font-size: 17px;
 }
 </style>
 </head>
@@ -78,37 +78,37 @@ body {
 
   <!-- ANA MENÜ -->
   <div id="main" class="buttons">
-    <button class="btn">Players</button>
-    <button class="btn" onclick="openMetas()">Meta's</button>
-    <button class="btn">Crews</button>
+    <button class="btn" onclick="openPlayers()">PLAYERS</button>
+    <button class="btn">CREWS</button>
   </div>
 
-  <!-- METAS -->
-  <div id="metas" class="metas">
+  <!-- PLAYERS (ESKİ METAS) -->
+  <div id="players" class="players">
     <button class="btn back-btn" onclick="goBack()">Back</button>
 
-    <div class="metas-grid">
-      <button class="btn">CDK</button>
-      <button class="btn">TTK</button>
-      <button class="btn">DIAMOND</button>
-      <button class="btn">DH</button>
+    <div class="players-grid">
+      <button class="btn">CDK META</button>
+      <button class="btn">TTK META</button>
+      <button class="btn">DIAMOND META</button>
+      <button class="btn">DH META</button>
     </div>
   </div>
 
 </div>
 
 <script>
-function openMetas() {
+function openPlayers() {
   document.getElementById("main").style.display = "none";
-  document.getElementById("metas").style.display = "block";
+  document.getElementById("players").style.display = "block";
 }
 
 function goBack() {
-  document.getElementById("metas").style.display = "none";
+  document.getElementById("players").style.display = "none";
   document.getElementById("main").style.display = "flex";
 }
 </script>
 
 </body>
 </html>
+
 

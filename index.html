@@ -39,7 +39,7 @@ body {
   border-radius: 16px;
   font-size: 22px;
   cursor: pointer;
-  transition: 
+  transition:
     transform 0.2s ease,
     background-color 0.2s ease,
     color 0.2s ease;
@@ -51,19 +51,28 @@ body {
   transform: scale(1.08);
 }
 
-/* PLAYERS (ESKİ METAS) */
+/* PLAYERS */
 .players {
   display: none;
 }
 
+/* 3 ÜST – 2 ALT GRID */
 .players-grid {
   display: grid;
-  grid-template-columns: repeat(2, 230px);
+  grid-template-columns: repeat(3, 230px);
   gap: 30px;
   justify-content: center;
 }
 
-/* BACK BUTONU */
+/* ALT SATIRI ORTALAMAK İÇİN */
+.players-grid .span-2 {
+  grid-column: span 3;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* BACK */
 .back-btn {
   width: 140px;
   height: 50px;
@@ -82,15 +91,21 @@ body {
     <button class="btn">CREWS</button>
   </div>
 
-  <!-- PLAYERS (ESKİ METAS) -->
+  <!-- PLAYERS -->
   <div id="players" class="players">
     <button class="btn back-btn" onclick="goBack()">Back</button>
 
     <div class="players-grid">
+      <!-- ÜST 3 -->
       <button class="btn">CDK META</button>
       <button class="btn">TTK META</button>
       <button class="btn">DIAMOND META</button>
-      <button class="btn">DH META</button>
+
+      <!-- ALT 2 -->
+      <div class="span-2">
+        <button class="btn">DH META</button>
+        <button class="btn">CURRENT META</button>
+      </div>
     </div>
   </div>
 

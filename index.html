@@ -4,73 +4,51 @@
 <meta charset="UTF-8">
 <title>BLOXTR</title>
 <style>
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin:0; padding:0; }
 body {
-  margin: 0;
   background: black;
   color: white;
   font-family: Arial, sans-serif;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 50px 10px 30px 10px;
+  padding: 50px 10px;
 }
 .container {
   width: 100%;
-  max-width: 500px; /* daha dar bir alan, ortada */
+  max-width: 400px;
   text-align: center;
 }
 
-/* ANA MENÜ */
-.buttons {
+/* BUTONLAR */
+.buttons, .row {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
   flex-wrap: wrap;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .btn {
   width: 180px;
-  height: 70px;
+  height: 60px;
   background: #2b2b2b;
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  transition: 0.2s;
 }
 .btn:hover {
   background: white;
   color: black;
   transform: scale(1.05);
 }
+.back-btn { width: 120px; margin-bottom: 20px; }
 
-/* MENÜLER */
-#players-menu, #dh-meta { display: none; }
-
-/* BACK */
-.back-btn {
-  width: 120px;
-  height: 40px;
-  margin: 0 auto 20px auto;
-  font-size: 16px;
-  display: block;
-}
-
-/* ROW FLEX */
-.row {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-bottom: 15px;
-}
-
-/* PROFİL KARTLARI */
+/* DH META LİSTESİ */
 .profile-grid {
   display: flex;
-  flex-direction: column; /* dikey liste */
+  flex-direction: column; /* dikey */
   gap: 10px;
   align-items: center;
 }
@@ -80,10 +58,9 @@ body {
   background: #1a1a1a;
   border-radius: 10px;
   padding: 8px 12px;
-  gap: 10px;
   width: 100%;
-  max-width: 400px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  max-width: 350px;
+  gap: 10px;
 }
 .profile-card img {
   width: 50px;
@@ -91,28 +68,15 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
-.profile-card span.name {
-  font-size: 16px;
-  flex: 1;
-  text-align: left;
-}
-.profile-card span.rank {
-  font-weight: bold;
-  width: 30px;
-  text-align: right;
-}
+.profile-card span.name { font-size: 16px; flex: 1; text-align: left; }
+.profile-card span.rank { width: 30px; text-align: right; font-weight: bold; }
 .rank.gold { color: #FFD700; }
 .rank.silver { color: #C0C0C0; }
 .rank.bronze { color: #CD7F32; }
 .rank.normal { color: white; }
-.profile-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 10px #fff;
-}
 </style>
 </head>
 <body>
-
 <div class="container">
 
   <!-- ANA MENÜ -->
@@ -135,14 +99,35 @@ body {
     </div>
   </div>
 
-  <!-- DH META PLAYERS -->
+  <!-- DH META -->
   <div id="dh-meta">
     <button class="btn back-btn" onclick="goBackToPlayers()">Back</button>
     <div class="profile-grid">
-      <div class="profile-card"><span class="rank gold">#1</span><img src="https://cdn.discordapp.com/avatars/655861631443664925/270d86c2795c684f8263ec55e60eb783.webp?size=1024"><span class="name">Felix</span></div>
-      <div class="profile-card"><span class="rank silver">#2</span><img src="https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024"><span class="name">Seijuro</span></div>
-      <div class="profile-card"><span class="rank bronze">#3</span><img src="https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024"><span class="name">Cako</span></div>
-      <div class="profile-card"><span class="rank normal">#4</span><img src="https://cdn.discordapp.com/avatars/1379437949632122900/6ca4cf634f57faa0682567955ff48547.webp?size=1024"><span class="name">Thung</span></div>
+      <!-- Felix -->
+      <div class="profile-card">
+        <span class="rank gold">#1</span>
+        <img src="https://media.discordapp.net/attachments/1389691531002380338/1457082115396079696/b1ecca61498986a84f1d9913e7594717.png?ex=695ab4f7&is=69596377&hm=183677e3fa42d6512d018e213c26271ce32e4bbb169c82b95582afb0f105b88c&=&format=webp&quality=lossless" alt="Felix">
+        <span class="name">Felix</span>
+      </div>
+      <!-- Seijuro -->
+      <div class="profile-card">
+        <span class="rank silver">#2</span>
+        <img src="https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024">
+        <span class="name">Seijuro</span>
+      </div>
+      <!-- Cako -->
+      <div class="profile-card">
+        <span class="rank bronze">#3</span>
+        <img src="https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024">
+        <span class="name">Cako</span>
+      </div>
+      <!-- Thung -->
+      <div class="profile-card">
+        <span class="rank normal">#4</span>
+        <img src="https://cdn.discordapp.com/avatars/1379437949632122900/6ca4cf634f57faa0682567955ff48547.webp?size=1024">
+        <span class="name">Thung</span>
+      </div>
+      <!-- N/A -->
       <div class="profile-card"><span class="rank normal">#5</span><img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"><span class="name">N/A</span></div>
       <div class="profile-card"><span class="rank normal">#6</span><img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"><span class="name">N/A</span></div>
       <div class="profile-card"><span class="rank normal">#7</span><img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"><span class="name">N/A</span></div>
@@ -162,7 +147,7 @@ function openPlayersMenu() {
 
 function openDHMeta() {
   document.getElementById("players-menu").style.display = "none";
-  document.getElementById("dh-meta").style.display = "block";
+  document.getElementById("dh-meta").style.display = "flex";
 }
 
 function goBackToMain() {

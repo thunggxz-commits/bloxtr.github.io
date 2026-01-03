@@ -13,7 +13,7 @@
         body {
             width: 100%;
             height: 100vh;
-            background-color: #000;
+            background-color: black;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -27,7 +27,7 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 220px);
             gap: 30px;
         }
 
@@ -60,7 +60,7 @@
     <!-- ANA MENÜ -->
     <div class="container" id="mainMenu">
         <button class="btn">Players</button>
-        <button class="btn" onclick="openMeta()">Meta's</button>
+        <button class="btn" id="metaBtn">Meta's</button>
         <button class="btn">Crews</button>
     </div>
 
@@ -73,10 +73,10 @@
     </div>
 
     <script>
-        function openMeta() {
+        document.getElementById("metaBtn").addEventListener("click", function () {
             document.getElementById("mainMenu").classList.add("hidden");
             document.getElementById("metaMenu").classList.remove("hidden");
-        }
+        });
     </script>
 
 </body>

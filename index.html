@@ -39,16 +39,46 @@ body {
 }
 .btn:hover { background: white; color: black; transform: scale(1.05); }
 .back-btn { width: 90px; margin-bottom: 10px; }
-.profile-grid { display: flex; flex-direction: column; gap: 8px; align-items: center; }
-.profile-card { display: flex; flex-direction: column; align-items: center; background: #1a1a1a; border-radius: 10px; padding: 8px 12px; width: 100%; max-width: 350px; gap: 5px; }
-.profile-card img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
-.profile-card span.name { font-size: 16px; text-align: center; }
-.profile-card span.rank { font-weight: bold; font-size: 14px; text-align: center; }
-.profile-card span.crew { font-size: 12px; color: #aaa; text-align: center; }
+
+/* PROFİL KARTLARI - YÜKSEKLİK DARALTILDI */
+.profile-grid { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+.profile-card { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  background: #1a1a1a; 
+  border-radius: 10px; 
+  padding: 4px 6px;  /* azaltıldı */
+  width: 100%; 
+  max-width: 350px; 
+  gap: 2px;  /* azaltıldı */
+}
+.profile-card img { 
+  width: 36px;  /* küçültüldü */
+  height: 36px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+}
+.profile-card span.name { 
+  font-size: 13px; /* küçültüldü */
+  text-align: center; 
+}
+.profile-card span.rank { 
+  font-weight: bold; 
+  font-size: 11px; /* küçültüldü */
+  text-align: center; 
+}
+.profile-card span.crew { 
+  font-size: 10px; /* küçültüldü */
+  color: #aaa; 
+  text-align: center; 
+}
+
 .rank.gold { color: #FFD700; }
 .rank.silver { color: #C0C0C0; }
 .rank.bronze { color: #CD7F32; }
 .rank.normal { color: white; }
+
 #players-menu, #meta-list { display: none; }
 </style>
 </head>

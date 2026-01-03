@@ -14,61 +14,18 @@ body {
   justify-content: center;
   align-items: center;
 }
-.container {
-  width: 100%;
-  max-width: 700px;
-  text-align: center;
-}
-.buttons, .meta-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-.btn {
-  width: 220px;   
-  height: 80px;   
-  background: #2b2b2b;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 20px; 
-  cursor: pointer;
-  transition: 0.2s;
-}
-.btn:hover {
-  background: white;
-  color: black;
-  transform: scale(1.05);
-}
+.container { width: 100%; max-width: 700px; text-align: center; }
+.buttons, .meta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
+.btn { width: 220px; height: 80px; background: #2b2b2b; color: white; border: none; border-radius: 12px; font-size: 20px; cursor: pointer; transition: 0.2s; }
+.btn:hover { background: white; color: black; transform: scale(1.05); }
 .back-btn { width: 120px; margin-bottom: 20px; }
-.profile-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-}
-.profile-card {
-  display: flex;
-  align-items: center;
-  background: #1a1a1a;
-  border-radius: 10px;
-  padding: 8px 12px;
-  width: 100%;
-  max-width: 350px;
-  gap: 10px;
-}
-.profile-card img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-}
+.profile-grid { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.profile-card { display: flex; align-items: center; background: #1a1a1a; border-radius: 10px; padding: 8px 12px; width: 100%; max-width: 350px; gap: 10px; }
+.profile-card img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
 .profile-card span.name { font-size: 16px; flex: 1; text-align: left; }
 .profile-card span.rank { width: 30px; text-align: right; font-weight: bold; }
 .rank.normal { color: white; }
-#players-menu, .meta-list { display: none; }
+#players-menu, #meta-list { display: none; }
 </style>
 </head>
 <body>
@@ -92,8 +49,8 @@ body {
   </div>
 </div>
 
-<!-- META LİSTELERİ -->
-<div id="meta-lists"></div>
+<!-- META LİSTESİ -->
+<div id="meta-list"></div>
 
 </div>
 
@@ -105,41 +62,43 @@ function openPlayersMenu() {
 
 function goBackToMain() {
   document.getElementById("players-menu").style.display = "none";
-  document.getElementById("meta-lists").innerHTML = '';
+  document.getElementById("meta-list").style.display = "none";
+  document.getElementById("meta-list").innerHTML = '';
   document.getElementById("main").style.display = "flex";
 }
 
 function openMeta(metaName) {
   document.getElementById("players-menu").style.display = "none";
-  const metaLists = document.getElementById("meta-lists");
-  metaLists.innerHTML = ''; // önceki listeyi temizle
-  const container = document.createElement('div');
-  container.className = 'meta-list';
 
-  // Back button
+  const metaContainer = document.getElementById("meta-list");
+  metaContainer.innerHTML = ''; // temizle
+  metaContainer.style.display = "flex";
+  metaContainer.style.flexDirection = "column";
+  metaContainer.style.alignItems = "center";
+
+  // Back Button
   const backBtn = document.createElement('button');
   backBtn.className = 'btn back-btn';
   backBtn.innerText = 'Back';
   backBtn.onclick = () => {
-    container.style.display = 'none';
+    metaContainer.style.display = 'none';
     document.getElementById("players-menu").style.display = 'block';
-  }
-  container.appendChild(backBtn);
+  };
+  metaContainer.appendChild(backBtn);
 
   // 10 oyuncu
   const grid = document.createElement('div');
   grid.className = 'profile-grid';
-  for(let i=1;i<=10;i++){
+  for(let i=1; i<=10; i++){
     const card = document.createElement('div');
     card.className = 'profile-card';
-    card.innerHTML = `<span class="rank normal">#${i}</span>
-                      <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg">
-                      <span class="name">N/A</span>`;
+    card.innerHTML = `
+      <span class="rank normal">#${i}</span>
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg">
+      <span class="name">N/A</span>`;
     grid.appendChild(card);
   }
-  container.appendChild(grid);
-  metaLists.appendChild(container);
-  container.style.display = 'flex';
+  metaContainer.appendChild(grid);
 }
 </script>
 </body>

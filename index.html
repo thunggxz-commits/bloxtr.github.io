@@ -13,11 +13,11 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 50px 10px;
+  padding: 50px 10px 30px 10px;
 }
 .container {
   width: 100%;
-  max-width: 800px;
+  max-width: 500px; /* daha dar bir alan, ortada */
   text-align: center;
 }
 
@@ -69,10 +69,10 @@ body {
 
 /* PROFİL KARTLARI */
 .profile-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  justify-items: center;
+  display: flex;
+  flex-direction: column; /* dikey liste */
+  gap: 10px;
+  align-items: center;
 }
 .profile-card {
   display: flex;
@@ -82,7 +82,7 @@ body {
   padding: 8px 12px;
   gap: 10px;
   width: 100%;
-  max-width: 250px;
+  max-width: 400px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .profile-card img {
@@ -162,7 +162,7 @@ function openPlayersMenu() {
 
 function openDHMeta() {
   document.getElementById("players-menu").style.display = "none";
-  document.getElementById("dh-meta").style.display = "grid";
+  document.getElementById("dh-meta").style.display = "block";
 }
 
 function goBackToMain() {

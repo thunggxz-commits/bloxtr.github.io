@@ -12,18 +12,20 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 30px;
 }
-.container { width: 100%; max-width: 900px; text-align: center; overflow-y:auto; height:100%; padding:10px 0; }
+.container { width: 100%; max-width: 900px; text-align: center; }
+
+h1 { color:#1E90FF; font-size:36px; margin-bottom:20px; }
 
 .buttons, .meta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
 .btn { width: 200px; height: 80px; background: #2b2b2b; color: white; border: none; border-radius: 12px; font-size: 18px; cursor: pointer; transition: 0.2s; }
 .btn:hover { background: white; color: black; transform: scale(1.05); }
 .back-btn { width: 120px; margin-bottom: 20px; }
 
-.profile-grid { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.profile-grid { display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top:20px; }
 
-/* PROFİL KARTLARI */
 .profile-card { 
   display: flex; 
   align-items: center; 
@@ -47,17 +49,18 @@ body {
 .rank.normal { color: white; }
 
 #players-menu, #meta-list { display: none; }
-h1 { color:#1E90FF; font-size:36px; margin-bottom:25px; }
 </style>
 </head>
 <body>
 <div class="container">
 
 <!-- ANA EKRAN -->
-<div id="main" class="buttons">
+<div id="main">
   <h1>Meet With the Best Turkish Players & Crews!</h1>
-  <button class="btn" onclick="openPlayersMenu()">PLAYERS</button>
-  <button class="btn">CREWS</button>
+  <div class="buttons">
+    <button class="btn" onclick="openPlayersMenu()">PLAYERS</button>
+    <button class="btn">CREWS</button>
+  </div>
 </div>
 
 <!-- PLAYERS MENÜ -->
@@ -102,7 +105,7 @@ function goBackToMain() {
   document.getElementById("players-menu").style.display = "none";
   document.getElementById("meta-list").style.display = "none";
   document.getElementById("meta-list").innerHTML = '';
-  document.getElementById("main").style.display = "flex";
+  document.getElementById("main").style.display = "block";
 }
 
 function openMeta(metaName) {

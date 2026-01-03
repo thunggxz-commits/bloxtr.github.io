@@ -19,8 +19,6 @@ body {
   max-width: 700px;
   text-align: center;
 }
-
-/* ANA BUTONLAR (PLAYERS & CREWS) */
 .buttons, .meta-buttons {
   display: flex;
   justify-content: center;
@@ -45,11 +43,6 @@ body {
   transform: scale(1.05);
 }
 .back-btn { width: 120px; margin-bottom: 20px; }
-
-/* META BUTONLARI */
-.meta-buttons .btn { width: 220px; height: 80px; font-size: 20px; }
-
-/* DH META LİSTESİ */
 .profile-grid {
   display: flex;
   flex-direction: column;
@@ -74,13 +67,8 @@ body {
 }
 .profile-card span.name { font-size: 16px; flex: 1; text-align: left; }
 .profile-card span.rank { width: 30px; text-align: right; font-weight: bold; }
-.rank.gold { color: #FFD700; }
-.rank.silver { color: #C0C0C0; }
-.rank.bronze { color: #CD7F32; }
 .rank.normal { color: white; }
-
-/* Başlangıçta gizli */
-#players-menu, #dh-meta { display: none; }
+#players-menu, .meta-list { display: none; }
 </style>
 </head>
 <body>
@@ -96,60 +84,62 @@ body {
 <div id="players-menu">
   <button class="btn back-btn" onclick="goBackToMain()">Back</button>
   <div class="meta-buttons">
-    <button class="btn">OLD TTK META</button>
-    <button class="btn">DIAMOND META</button>
-    <button class="btn" onclick="openDHMeta()">DH META</button>
-    <button class="btn">RUMBLE META</button>
-    <button class="btn">CURRENT META</button>
+    <button class="btn" onclick="openMeta('OLD TTK META')">OLD TTK META</button>
+    <button class="btn" onclick="openMeta('DIAMOND META')">DIAMOND META</button>
+    <button class="btn" onclick="openMeta('DH META')">DH META</button>
+    <button class="btn" onclick="openMeta('RUMBLE META')">RUMBLE META</button>
+    <button class="btn" onclick="openMeta('CURRENT META')">CURRENT META</button>
   </div>
 </div>
 
-<!-- DH META LİSTESİ -->
-<div id="dh-meta">
-  <button class="btn back-btn" onclick="goBackToPlayers()">Back</button>
-  <div class="profile-grid">
-
-    <div class="profile-card"><span class="rank gold">#1</span><img src="https://images-ext-1.discordapp.net/external/8xJf-XWfH54HgU--L3VevoNdWbh4rlkMzUTPnlqNkUI/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/655861631443664925/25fa6c270f42d0db432c7afb18d8e8ec.webp?format=webp"><span class="name">Felix</span></div>
-
-    <div class="profile-card"><span class="rank silver">#2</span><img src="https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024"><span class="name">Seijuro</span></div>
-
-    <div class="profile-card"><span class="rank bronze">#3</span><img src="https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024"><span class="name">Cako</span></div>
-
-    <div class="profile-card"><span class="rank normal">#4</span><img src="https://cdn.discordapp.com/avatars/1379437949632122900/6ca4cf634f57faa0682567955ff48547.webp?size=1024"><span class="name">Thung</span></div>
-
-    <div class="profile-card"><span class="rank normal">#5</span><img src="https://cdn.discordapp.com/avatars/1126125493083721769/84880d047e07c1c8de01b8be5c3e68a0.webp?size=1024"><span class="name">Scarlet</span></div>
-
-    <div class="profile-card"><span class="rank normal">#6</span><img src="https://cdn.discordapp.com/avatars/1410278929851486248/bdbacd2b2bb0a00a83dd76208ad84bfc.webp?size=1024"><span class="name">Zan</span></div>
-
-    <div class="profile-card"><span class="rank normal">#7</span><img src="https://cdn.discordapp.com/avatars/1126860874980798577/bdb1fa27b7b4bcc5e96a0072dda03fe1.webp?size=1024"><span class="name">Gustav</span></div>
-
-    <div class="profile-card"><span class="rank normal">#8</span><img src="https://cdn.discordapp.com/avatars/1231986258826231911/f1bbde8d1473d57e25b59993e5866e8a.webp?size=1024"><span class="name">Mansy</span></div>
-
-    <div class="profile-card"><span class="rank normal">#9</span><img src="https://cdn.discordapp.com/avatars/1045211249002168411/fb7cc4dbc3affb2c563b1e82d97f3978.webp?size=1024"><span class="name">Dou</span></div>
-
-    <div class="profile-card"><span class="rank normal">#10</span><img src="https://cdn.discordapp.com/avatars/1405197917786210395/7c5c6e4e664d314c9919207291aa81a3.webp?size=1024"><span class="name">Exe</span></span></div>
-
-  </div>
-</div>
+<!-- META LİSTELERİ -->
+<div id="meta-lists"></div>
 
 </div>
+
 <script>
 function openPlayersMenu() {
   document.getElementById("main").style.display = "none";
   document.getElementById("players-menu").style.display = "block";
 }
-function openDHMeta() {
-  document.getElementById("players-menu").style.display = "none";
-  document.getElementById("dh-meta").style.display = "flex";
-}
+
 function goBackToMain() {
   document.getElementById("players-menu").style.display = "none";
-  document.getElementById("dh-meta").style.display = "none";
+  document.getElementById("meta-lists").innerHTML = '';
   document.getElementById("main").style.display = "flex";
 }
-function goBackToPlayers() {
-  document.getElementById("dh-meta").style.display = "none";
-  document.getElementById("players-menu").style.display = "block";
+
+function openMeta(metaName) {
+  document.getElementById("players-menu").style.display = "none";
+  const metaLists = document.getElementById("meta-lists");
+  metaLists.innerHTML = ''; // önceki listeyi temizle
+  const container = document.createElement('div');
+  container.className = 'meta-list';
+
+  // Back button
+  const backBtn = document.createElement('button');
+  backBtn.className = 'btn back-btn';
+  backBtn.innerText = 'Back';
+  backBtn.onclick = () => {
+    container.style.display = 'none';
+    document.getElementById("players-menu").style.display = 'block';
+  }
+  container.appendChild(backBtn);
+
+  // 10 oyuncu
+  const grid = document.createElement('div');
+  grid.className = 'profile-grid';
+  for(let i=1;i<=10;i++){
+    const card = document.createElement('div');
+    card.className = 'profile-card';
+    card.innerHTML = `<span class="rank normal">#${i}</span>
+                      <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg">
+                      <span class="name">N/A</span>`;
+    grid.appendChild(card);
+  }
+  container.appendChild(grid);
+  metaLists.appendChild(container);
+  container.style.display = 'flex';
 }
 </script>
 </body>

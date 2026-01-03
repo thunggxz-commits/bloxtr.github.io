@@ -24,6 +24,9 @@ body {
 .profile-card img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
 .profile-card span.name { font-size: 16px; flex: 1; text-align: left; }
 .profile-card span.rank { width: 30px; text-align: right; font-weight: bold; }
+.rank.gold { color: #FFD700; }
+.rank.silver { color: #C0C0C0; }
+.rank.bronze { color: #CD7F32; }
 .rank.normal { color: white; }
 #players-menu, #meta-list { display: none; }
 </style>
@@ -55,6 +58,19 @@ body {
 </div>
 
 <script>
+const dhMetaPlayers = [
+  {rank:'#1', name:'Felix', profile:'https://images-ext-1.discordapp.net/external/8xJf-XWfH54HgU--L3VevoNdWbh4rlkMzUTPnlqNkUI/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/655861631443664925/25fa6c270f42d0db432c7afb18d8e8c.webp?format=webp', color:'gold'},
+  {rank:'#2', name:'Seijuro', profile:'https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024', color:'silver'},
+  {rank:'#3', name:'Cako', profile:'https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024', color:'bronze'},
+  {rank:'#4', name:'Thung', profile:'https://cdn.discordapp.com/avatars/1379437949632122900/6ca4cf634f57faa0682567955ff48547.webp?size=1024', color:'normal'},
+  {rank:'#5', name:'Scarlet', profile:'https://cdn.discordapp.com/avatars/1126125493083721769/84880d047e07c1c8de01b8be5c3e68a0.webp?size=1024', color:'normal'},
+  {rank:'#6', name:'Zan', profile:'https://cdn.discordapp.com/avatars/1410278929851486248/bdbacd2b2bb0a00a83dd76208ad84bfc.webp?size=1024', color:'normal'},
+  {rank:'#7', name:'Gustav', profile:'https://cdn.discordapp.com/avatars/1126860874980798577/bdb1fa27b7b4bcc5e96a0072dda03fe1.webp?size=1024', color:'normal'},
+  {rank:'#8', name:'Mansy', profile:'https://cdn.discordapp.com/avatars/1231986258826231911/f1bbde8d1473d57e25b59993e5866e8a.webp?size=1024', color:'normal'},
+  {rank:'#9', name:'Dou', profile:'https://cdn.discordapp.com/avatars/1045211249002168411/fb7cc4dbc3affb2c563b1e82d97f3978.webp?size=1024', color:'normal'},
+  {rank:'#10', name:'Exe', profile:'https://cdn.discordapp.com/avatars/1405197917786210395/7c5c6e4e664d314c9919207291aa81a3.webp?size=1024', color:'normal'}
+];
+
 function openPlayersMenu() {
   document.getElementById("main").style.display = "none";
   document.getElementById("players-menu").style.display = "block";
@@ -71,33 +87,44 @@ function openMeta(metaName) {
   document.getElementById("players-menu").style.display = "none";
 
   const metaContainer = document.getElementById("meta-list");
-  metaContainer.innerHTML = ''; // temizle
-  metaContainer.style.display = "flex";
-  metaContainer.style.flexDirection = "column";
-  metaContainer.style.alignItems = "center";
+  metaContainer.innerHTML = '';
+  metaContainer.style.display = 'flex';
+  metaContainer.style.flexDirection = 'column';
+  metaContainer.style.alignItems = 'center';
 
-  // Back Button
+  // Back button
   const backBtn = document.createElement('button');
   backBtn.className = 'btn back-btn';
   backBtn.innerText = 'Back';
   backBtn.onclick = () => {
     metaContainer.style.display = 'none';
     document.getElementById("players-menu").style.display = 'block';
-  };
+  }
   metaContainer.appendChild(backBtn);
 
-  // 10 oyuncu
   const grid = document.createElement('div');
   grid.className = 'profile-grid';
-  for(let i=1; i<=10; i++){
-    const card = document.createElement('div');
-    card.className = 'profile-card';
-    card.innerHTML = `
-      <span class="rank normal">#${i}</span>
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg">
-      <span class="name">N/A</span>`;
-    grid.appendChild(card);
+
+  if(metaName === 'DH META'){
+    dhMetaPlayers.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'profile-card';
+      card.innerHTML = `<span class="rank ${p.color}">${p.rank}</span>
+                        <img src="${p.profile}">
+                        <span class="name">${p.name}</span>`;
+      grid.appendChild(card);
+    });
+  } else {
+    for(let i=1;i<=10;i++){
+      const card = document.createElement('div');
+      card.className = 'profile-card';
+      card.innerHTML = `<span class="rank normal">#${i}</span>
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg">
+                        <span class="name">N/A</span>`;
+      grid.appendChild(card);
+    }
   }
+
   metaContainer.appendChild(grid);
 }
 </script>

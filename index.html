@@ -56,20 +56,12 @@ body {
   display: none;
 }
 
-/* 3 ÜST – 2 ALT GRID */
-.players-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 230px);
-  gap: 30px;
-  justify-content: center;
-}
-
-/* ALT SATIRI ORTALAMAK İÇİN */
-.players-grid .span-2 {
-  grid-column: span 3;
+/* SATIRLAR */
+.row {
   display: flex;
-  gap: 30px;
   justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
 }
 
 /* BACK */
@@ -95,17 +87,17 @@ body {
   <div id="players" class="players">
     <button class="btn back-btn" onclick="goBack()">Back</button>
 
-    <div class="players-grid">
-      <!-- ÜST 3 -->
+    <!-- ÜST SIRA (3) -->
+    <div class="row">
       <button class="btn">CDK META</button>
       <button class="btn">TTK META</button>
       <button class="btn">DIAMOND META</button>
+    </div>
 
-      <!-- ALT 2 -->
-      <div class="span-2">
-        <button class="btn">DH META</button>
-        <button class="btn">CURRENT META</button>
-      </div>
+    <!-- ALT SIRA (2) -->
+    <div class="row">
+      <button class="btn">DH META</button>
+      <button class="btn">CURRENT META</button>
     </div>
   </div>
 

@@ -36,7 +36,7 @@ body {
   transform: scale(1.08);
 }
 
-/* PLAYERS MENÜ */
+/* PLAYERS MENÜ VE DH META */
 #players-menu, #dh-meta { display: none; }
 
 /* BACK */
@@ -72,6 +72,14 @@ body {
 .profile-card:hover {
   transform: scale(1.03);
   box-shadow: 0 0 15px #fff;
+}
+
+/* ROW FLEX */
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
 }
 </style>
 </head>
@@ -162,6 +170,7 @@ function openDHMeta() {
 
 function goBackToMain() {
   document.getElementById("players-menu").style.display = "none";
+  document.getElementById("dh-meta").style.display = "none";
   document.getElementById("main").style.display = "flex";
 }
 
@@ -173,5 +182,3 @@ function goBackToPlayers() {
 
 </body>
 </html>
-
-

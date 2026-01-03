@@ -80,20 +80,30 @@ h1 { color:#1E90FF; font-size:36px; margin-bottom:20px; }
 </div>
 
 <script>
+// DH META oyuncuları
 const dhMetaPlayers = [
-  {rank:'#1', name:'Felix', profile:'https://cdn.discordapp.com/avatars/655861631443664925/25fa6c270f42d0db432c7afb18d8e8ec.webp?size=1024', color:'gold', crew:'Turkish Empire'},
-  {rank:'#2', name:'Seijuro', profile:'https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024', color:'silver', crew:'Celestial Symphony'},
-  {rank:'#3', name:'Cako', profile:'https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024', color:'bronze', crew:'Turkish Empire'},
-  {rank:'#4', name:'Thung', profile:'https://cdn.discordapp.com/avatars/1379437949632122900/6ca4cf634f57faa0682567955ff48547.webp?size=1024', color:'normal', crew:'Turkish Empire'},
-  {rank:'#5', name:'Scarlet', profile:'https://cdn.discordapp.com/avatars/1126125493083721769/84880d047e07c1c8de01b8be5c3e68a0.webp?size=1024', color:'normal', crew:'Turkish Empire'},
-  {rank:'#6', name:'Zan', profile:'https://cdn.discordapp.com/avatars/1410278929851486248/bdbacd2b2bb0a00a83dd76208ad84bfc.webp?size=1024', color:'normal', crew:'Turkish Empire'},
-  {rank:'#7', name:'Gustav', profile:'https://cdn.discordapp.com/avatars/1126860874980798577/bdb1fa27b7b4bcc5e96a0072dda03fe1.webp?size=1024', color:'normal', crew:'N/A'},
-  {rank:'#8', name:'Mansy', profile:'https://cdn.discordapp.com/avatars/1231986258826231911/f1bbde8d1473d57e25b59993e5866e8a.webp?size=1024', color:'normal', crew:'Turkish Empire'},
-  {rank:'#9', name:'Dou', profile:'https://cdn.discordapp.com/avatars/1045211249002168411/fb7cc4dbc3affb2c563b1e82d97f3978.webp?size=1024', color:'normal', crew:'Turkish Empire'},
-  {rank:'#10', name:'Exe', profile:'https://cdn.discordapp.com/avatars/1405197917786210395/7c5c6e4e664d314c9919207291aa81a3.webp?size=1024', color:'normal', crew:'Turkish Empire'}
+  {rank:'#1', name:'Felix', profile:'https://cdn.discordapp.com/avatars/655861631443664925/25fa6c270f42d0db432c7afb18d8e8ec.webp?size=1024', crew:'Turkish Empire'},
+  {rank:'#2', name:'Seijuro', profile:'https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024', crew:'Celestial Symphony'},
+  {rank:'#3', name:'Cako', profile:'https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024', crew:'Turkish Empire'},
+  {rank:'#4', name:'Thung', profile:'https://cdn.discordapp.com/avatars/1379437949632122900/6ca4cf634f57faa0682567955ff48547.webp?size=1024', crew:'Turkish Empire'},
+  {rank:'#5', name:'Scarlet', profile:'https://cdn.discordapp.com/avatars/1126125493083721769/84880d047e07c1c8de01b8be5c3e68a0.webp?size=1024', crew:'Turkish Empire'},
+  {rank:'#6', name:'Zan', profile:'https://cdn.discordapp.com/avatars/1410278929851486248/bdbacd2b2bb0a00a83dd76208ad84bfc.webp?size=1024', crew:'Turkish Empire'},
+  {rank:'#7', name:'Gustav', profile:'https://cdn.discordapp.com/avatars/1126860874980798577/bdb1fa27b7b4bcc5e96a0072dda03fe1.webp?size=1024', crew:'N/A'},
+  {rank:'#8', name:'Mansy', profile:'https://cdn.discordapp.com/avatars/1231986258826231911/f1bbde8d1473d57e25b59993e5866e8a.webp?size=1024', crew:'Turkish Empire'},
+  {rank:'#9', name:'Dou', profile:'https://cdn.discordapp.com/avatars/1045211249002168411/fb7cc4dbc3affb2c563b1e82d97f3978.webp?size=1024', crew:'Turkish Empire'},
+  {rank:'#10', name:'Exe', profile:'https://cdn.discordapp.com/avatars/1405197917786210395/7c5c6e4e664d314c9919207291aa81a3.webp?size=1024', crew:'Turkish Empire'}
 ];
 
-const defaultPlayers = Array.from({length:10}, (_,i)=>({rank:'#'+(i+1), name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', color:'normal', crew:'N/A'}));
+// Default oyuncular (diğer metalar için)
+const defaultPlayers = Array.from({length:10}, (_,i)=>({rank:'#'+(i+1), name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', crew:'N/A'}));
+
+// Rank rengine göre fonksiyon
+function getRankColor(rank){
+  if(rank==='#1') return 'gold';
+  if(rank==='#2') return 'silver';
+  if(rank==='#3') return 'bronze';
+  return 'normal';
+}
 
 function openPlayersMenu() {
   document.getElementById("main").style.display = "none";
@@ -128,12 +138,14 @@ function openMeta(metaName) {
   const grid = document.createElement('div');
   grid.className = 'profile-grid';
 
+  // Hangi meta
   let playersList = metaName==='DH META'?dhMetaPlayers:defaultPlayers;
 
   playersList.forEach(p => {
+    const colorClass = getRankColor(p.rank);
     const card = document.createElement('div');
     card.className = 'profile-card';
-    card.innerHTML = `<span class="rank ${p.color}">${p.rank}</span>
+    card.innerHTML = `<span class="rank ${colorClass}">${p.rank}</span>
                       <img src="${p.profile}">
                       <span class="name">${p.name}</span>
                       <span class="crew">CREW: ${p.crew}</span>`;

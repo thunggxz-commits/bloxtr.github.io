@@ -80,7 +80,7 @@ h1 { color:#1E90FF; font-size:36px; margin-bottom:20px; }
 </div>
 
 <script>
-// DH META oyuncuları (crew’ler güncellendi)
+// DH META
 const dhMetaPlayers = [
   {rank:'#1', name:'Felix', profile:'https://cdn.discordapp.com/avatars/655861631443664925/25fa6c270f42d0db432c7afb18d8e8ec.webp?size=1024', crew:'Heavenly Monarchz'},
   {rank:'#2', name:'Seijuro', profile:'https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024', crew:'Celestial Symphony'},
@@ -94,7 +94,7 @@ const dhMetaPlayers = [
   {rank:'#10', name:'Exe', profile:'https://cdn.discordapp.com/avatars/1405197917786210395/7c5c6e4e664d314c9919207291aa81a3.webp?size=1024', crew:'Heavenly Monarchz'}
 ];
 
-// OLD TTK META oyuncuları (önceki crew’ler)
+// OLD TTK META
 const oldTtkPlayers = [
   {rank:'#1', name:'Wex1n', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', crew:'Celestial Symphony'},
   {rank:'#2', name:'Cako', profile:'https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024', crew:'Rumbling'},
@@ -106,6 +106,20 @@ const oldTtkPlayers = [
   {rank:'#8', name:'Heko', profile:'https://cdn.discordapp.com/avatars/1276239420579774560/b630689e8bf0a4653632523676c74917.webp?size=1024', crew:'Rumbling'},
   {rank:'#9', name:'Kage', profile:'https://cdn.discordapp.com/avatars/862423489633452112/910dcdcba1b6c2782951763b5ef6bcc1.webp?size=1024', crew:'Rumbling'},
   {rank:'#10', name:'Exe', profile:'https://cdn.discordapp.com/avatars/1405197917786210395/7c5c6e4e664d314c9919207291aa81a3.webp?size=1024', crew:'Rumbling'}
+];
+
+// DIAMOND META
+const diamondPlayers = [
+  {rank:'#1', name:'Cako', profile:'https://cdn.discordapp.com/avatars/1203074229831077911/4c37e697f89395b5f464893ad5f6b3c1.webp?size=1024', crew:'Rumbling'},
+  {rank:'#2', name:'Felix', profile:'https://cdn.discordapp.com/avatars/655861631443664925/25fa6c270f42d0db432c7afb18d8e8ec.webp?size=1024', crew:'Heavenly Monarchz'},
+  {rank:'#3', name:'Wex1n', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', crew:'Celestial Symphony'},
+  {rank:'#4', name:'Zan', profile:'https://cdn.discordapp.com/avatars/1410278929851486248/bdbacd2b2bb0a00a83dd76208ad84bfc.webp?size=1024', crew:'Rumbling'},
+  {rank:'#5', name:'Seijuro', profile:'https://cdn.discordapp.com/avatars/825000845396803644/5fceea869508b836a41a7e59c16a6b36.webp?size=1024', crew:'Celestial Symphony'},
+  {rank:'#6', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', crew:'N/A'},
+  {rank:'#7', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', crew:'N/A'},
+  {rank:'#8', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', crew:'N/A'},
+  {rank:'#9', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', crew:'N/A'},
+  {rank:'#10', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', crew:'N/A'}
 ];
 
 const defaultPlayers = Array.from({length:10}, (_,i)=>({rank:'#'+(i+1), name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', crew:'N/A'}));
@@ -154,6 +168,7 @@ function openMeta(metaName) {
   switch(metaName){
     case 'DH META': playersList = dhMetaPlayers; break;
     case 'OLD TTK META': playersList = oldTtkPlayers; break;
+    case 'DIAMOND META': playersList = diamondPlayers; break;
     default: playersList = defaultPlayers;
   }
 

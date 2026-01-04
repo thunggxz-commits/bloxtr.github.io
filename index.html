@@ -58,7 +58,7 @@ h1 { color:#1E90FF; font-size:36px; margin-bottom:20px; }
   <h1>Meet With the Best Turkish Players & Crews!</h1>
   <div class="buttons">
     <button class="btn" onclick="openPlayersMenu()">PLAYERS</button>
-    <button class="btn">CREWS</button>
+    <button class="btn" id="crews-btn">CREWS</button>
   </div>
 </div>
 
@@ -74,7 +74,7 @@ h1 { color:#1E90FF; font-size:36px; margin-bottom:20px; }
   </div>
 </div>
 
-<!-- META LİSTESİ -->
+<!-- META / CREWS LİSTESİ -->
 <div id="meta-list"></div>
 
 </div>
@@ -120,6 +120,11 @@ const diamondPlayers = [
   {rank:'#8', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', crew:'N/A'},
   {rank:'#9', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', crew:'N/A'},
   {rank:'#10', name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', crew:'N/A'}
+];
+
+// CREWS
+const crewsList = [
+  {rank:'#1', name:'Turkish Empire', logo:'https://cdn.discordapp.com/icons/1340294100917817375/a_b2f958a08be4f3fb1ae892688106ab68.gif?animated=true&size=1024'},
 ];
 
 const defaultPlayers = Array.from({length:10}, (_,i)=>({rank:'#'+(i+1), name:'N/A', profile:'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg', crew:'N/A'}));
@@ -180,6 +185,40 @@ function openMeta(metaName) {
                       <img src="${p.profile}">
                       <span class="name">${p.name}</span>
                       <span class="crew">CREW: ${p.crew}</span>`;
+    grid.appendChild(card);
+  });
+
+  metaContainer.appendChild(grid);
+}
+
+// CREWS button
+document.getElementById('crews-btn').onclick = function openCrews() {
+  document.getElementById("main").style.display = "none";
+  const metaContainer = document.getElementById("meta-list");
+  metaContainer.innerHTML = '';
+  metaContainer.style.display = 'flex';
+  metaContainer.style.flexDirection = 'column';
+  metaContainer.style.alignItems = 'center';
+
+  const backBtn = document.createElement('button');
+  backBtn.className = 'btn back-btn';
+  backBtn.innerText = 'Back';
+  backBtn.onclick = () => {
+    metaContainer.style.display = 'none';
+    document.getElementById("main").style.display = 'block';
+  }
+  metaContainer.appendChild(backBtn);
+
+  const grid = document.createElement('div');
+  grid.className = 'profile-grid';
+
+  crewsList.forEach(c => {
+    let colorClass = getRankColor(c.rank);
+    const card = document.createElement('div');
+    card.className = 'profile-card';
+    card.innerHTML = `<span class="rank ${colorClass}">${c.rank}</span>
+                      <img src="${c.logo}">
+                      <span class="name">${c.name}</span>`;
     grid.appendChild(card);
   });
 
